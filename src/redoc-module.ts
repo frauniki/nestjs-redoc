@@ -85,9 +85,16 @@ export class RedocModule {
     // Normalize URL path to use
     const finalPath = this.normalizePath(path);
     // Add a slash to the end of the URL path to use in URL resolve function
-    const resolvedPath =
+    let resolvedPath =
       finalPath.slice(-1) !== '/' ? finalPath + '/' : finalPath;
     // Serve swagger spec in another URL appended to the normalized path
+    const optionRootPath = options.rootPath;
+    if (optionRootPath) {
+      resolvedPath = pathModule.join(
+        this.normalizePath(optionRootPath),
+        resolvedPath
+      );
+    }
     const docUrl = resolve(resolvedPath, `${options.docName}.json`);
     // create helper to convert metadata to JSON
     const hbs = handlebars.create({

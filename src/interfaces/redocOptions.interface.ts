@@ -54,6 +54,9 @@ export interface RedocOptions {
 
   /** If set, group tags in categories in the side menu. Tags not added to a group will not be displayed. */
   tagGroups?: TagGroupOptions[];
+
+  /** If set, overwrite root URL */
+  rootPath?: string;
 }
 
 export interface LogoOptions {

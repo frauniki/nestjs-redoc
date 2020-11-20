@@ -44,4 +44,5 @@ export const schema = (document: OpenAPIObject) =>
         })
       )
       .optional(),
+    rootPath: Joi.string().optional(),
   });

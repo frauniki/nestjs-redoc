@@ -41,6 +41,7 @@ async function bootstrap() {
         tags: ['cats'],
       },
     ],
+    //rootPath: '/hoge',
   };
   await RedocModule.setup('docs', app, document, redocOptions);
   await app.listen(8000);
